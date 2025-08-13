@@ -1,0 +1,10 @@
+# /.htaccess
+RewriteEngine On
+
+# Let existing files/folders pass through
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else goes to index.php (front controller)
+RewriteRule ^ index.php [QSA,L]
